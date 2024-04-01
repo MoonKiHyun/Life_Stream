@@ -34,4 +34,14 @@ public class Member {
     @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private MemberRoleEnum role;
+
+    public static Member of(String email, String username, String password, MemberRoleEnum role) {
+
+        return Member.builder()
+                .email(email)
+                .username(username)
+                .password(password)
+                .role(role)
+                .build();
+    }
 }

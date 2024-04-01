@@ -1,0 +1,41 @@
+MemberLogin, MemberSignup
+- 비밀번호 입력 조건 {
+
+
+WebSecurityConfig
+- .requestMatchers("/api/member/**").permitAll()
+
+
+JWTAuthenticationFilter 예외 처리
+- catch (IOException e)
+- unsuccessfulAuthentication
+
+
+refresh 토큰 쿠키 이름 생각하기
+
+
+토큰 만료 시 어떤 메서드 사용할지
+
+    try {
+        jwtUtil.isExpired(accessToken);
+    } catch (ExpiredJwtException e) {
+        return;
+    }
+
+    if (jwtUtil.isExpired(accessToken)) {
+        return;
+    }
+
+
+unsuccessfulAuthentication 메서드 보충
+
+
+@PostConstruct 사용이유
+
+
+secretKey를 base64로 인코딩해서 사용한 이유
+
+
+엑세스 토큰과 리프레시 토큰 저장 위치 선택의 이유
+
+
